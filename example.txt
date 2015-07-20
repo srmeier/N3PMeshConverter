@@ -1,0 +1,5 @@
+- convert the .dxt file to a .bmp/.png using "N3TexViewerPNG"
+- then run the following in the command line
+
+N3PMeshConvert -export obj 1_6011_00_0.n3pmesh item_co_bow.bmp
+N3PMeshConvert -import 1_6011_00_0.obj

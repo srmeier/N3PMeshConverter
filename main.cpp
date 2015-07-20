@@ -1,5 +1,5 @@
 /*
-g++ main.cpp -o N3PMeshConvert.exe -I./include -L./lib -lassimp.dll
+g++ -static -static-libgcc -static-libstdc++ main.cpp -o N3PMeshConvert.exe -I./include -L./lib -lassimp.dll
 N3PMeshConvert -export obj 1_6011_00_0.n3pmesh item_co_bow.bmp
 N3PMeshConvert -import 1_6011_00_0.obj
 */
