@@ -1,6 +1,8 @@
 ﻿  Main.cpp
      Creating library C:\Users\srmeier\Documents\Visual Studio 2015\Projects\N3PMeshConverter\Release\N3PMeshConverter.lib and object C:\Users\srmeier\Documents\Visual Studio 2015\Projects\N3PMeshConverter\Release\N3PMeshConverter.exp
   Generating code
-  All 90 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  3 of 91 functions ( 3.3%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    2 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   N3PMeshConverter.vcxproj -> C:\Users\srmeier\Documents\Visual Studio 2015\Projects\N3PMeshConverter\Release\N3PMeshConverter.exe

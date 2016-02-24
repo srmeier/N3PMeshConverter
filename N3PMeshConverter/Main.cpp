@@ -24,6 +24,20 @@ typedef struct {
 
 typedef unsigned short Element;
 
+struct _N3EdgeCollapse {
+	int NumIndicesToLose;
+	int NumIndicesToChange;
+	int NumVerticesToLose;
+	int iIndexChanges;
+	int CollapseTo;
+	bool bShouldCollapse;
+};
+
+struct _N3LODCtrlValue {
+	float fDist;
+	int iNumVertices;
+};
+
 //-----------------------------------------------------------------------------
 aiScene  m_Scene;
 Element* m_pIndices;
@@ -87,6 +101,7 @@ int main(int argc, char* argv[]) {
 		if(!found) {
 			printf("\nER: That format is not supported! Check the following list\n");
 			system("N3PMeshConvert -formats\n");
+			system("pause");
 			exit(-1);
 		}
 
@@ -126,6 +141,8 @@ int main(int argc, char* argv[]) {
 	delete pExporter;
 	pExporter = NULL;
 
+	system("pause");
+
 	return 0;
 }
 
@@ -142,6 +159,7 @@ void ParseScene(const char* szFN) {
 
 	if(pScene == NULL) {
 		printf("\nER: %s\n", Importer.GetErrorString());
+		system("pause");
 		exit(-1);
 	}
 
@@ -153,6 +171,7 @@ void ParseScene(const char* szFN) {
 	if(m_iMaxNumVertices==0 || m_iMaxNumIndices==0) {
 		printf("Failed!\n");
 		printf("\nER: Mesh data missing!\n");
+		system("pause");
 		exit(-1);
 	}
 
@@ -202,74 +221,172 @@ void ParseScene(const char* szFN) {
 void N3LoadMesh(const char* szFN) {
 	FILE* fpMesh = fopen(szFN, "rb");
 	if(fpMesh == NULL) {
-		printf("\nER: Unable to find mesh file!\n");
+		fprintf(stderr, "\nERROR: Missing mesh %s\n", szFN);
+		system("pause");
 		exit(-1);
 	}
+	/*
+	*/
 
-	int nL = 0;
-	fread(&nL, sizeof(int), 1, fpMesh);
+	// NOTE: length of the name for the mesh
+	int nL0 = 0;
+	fread(&nL0, sizeof(int), 1, fpMesh);
 
-	char* m_szName = new char[(nL+1)];
+	// NOTE: if the shape has a mesh name read it in
+	char m_szName0[0xFF] = {};
 
-	if(nL > 0) {
-		memset(m_szName, 0, (nL+1));
-		fread(m_szName, sizeof(char), nL, fpMesh);
+	if(nL0 > 0) {
+		memset(&m_szName0, 0, (nL0+1));
+		fread(&m_szName0, sizeof(char), nL0, fpMesh);
 	}
 
-	int m_iNumCollapses;
-	int m_iMinNumIndices;
-	int m_iMinNumVertices;
-	int m_iTotalIndexChanges;
+	// NOTE: read in the number of "collapses"
+	int m_iNumCollapses0;
+	fread(&m_iNumCollapses0, sizeof(int), 1, fpMesh);
 
-	fread(&m_iNumCollapses,      sizeof(uint32_t), 1, fpMesh);
-	fread(&m_iTotalIndexChanges, sizeof(uint32_t), 1, fpMesh);
-	fread(&m_iMaxNumVertices,    sizeof(uint32_t), 1, fpMesh);
-	fread(&m_iMaxNumIndices,     sizeof(uint32_t), 1, fpMesh);
-	fread(&m_iMinNumVertices,    sizeof(uint32_t), 1, fpMesh);
-	fread(&m_iMinNumIndices,     sizeof(uint32_t), 1, fpMesh);
+	// NOTE: read in the total index changes
+	int m_iTotalIndexChanges0;
+	fread(&m_iTotalIndexChanges0, sizeof(int), 1, fpMesh);
 
+	// NOTE: read in the max num of vertices
+	fread(&m_iMaxNumVertices, sizeof(int), 1, fpMesh);
+
+	// NOTE: read in the max num of indices
+	fread(&m_iMaxNumIndices, sizeof(int), 1, fpMesh);
+
+	// NOTE: read in the min num of vertices
+	int m_iMinNumVertices0;
+	fread(&m_iMinNumVertices0, sizeof(int), 1, fpMesh);
+
+	// NOTE: read in the min num of indices
+	int m_iMinNumIndices0;
+	fread(&m_iMinNumIndices0, sizeof(int), 1, fpMesh);
+
+	// NOTE: free the previous vertex data
 	if(m_pVertices) {
 		delete m_pVertices;
 		m_pVertices = NULL;
 	}
 
+	// NOTE: if there is a max vertex amount allocate space for it
 	if(m_iMaxNumVertices > 0) {
 		m_pVertices = new Vertex[m_iMaxNumVertices];
 		memset(m_pVertices, 0, sizeof(Vertex)*m_iMaxNumVertices);
+
+		// NOTE: read in the vertex data
 		fread(m_pVertices, sizeof(Vertex), m_iMaxNumVertices, fpMesh);
 	}
 
+	// NOTE: free the previous index data
 	if(m_pIndices) {
 		delete m_pIndices;
 		m_pIndices = NULL;
 	}
 
+	// NOTE: if there is a max index amount allocate space for it
 	if(m_iMaxNumIndices > 0) {
-		m_pIndices = new Element[m_iMaxNumIndices];
-		memset(m_pIndices, 0, sizeof(Element)*m_iMaxNumIndices);
-		fread(m_pIndices, sizeof(Element), m_iMaxNumIndices, fpMesh);
+		m_pIndices = new unsigned short[m_iMaxNumIndices];
+		memset(m_pIndices, 0, sizeof(unsigned short)*m_iMaxNumIndices);
+
+		// NOTE: read in the vertex data
+		fread(m_pIndices, sizeof(unsigned short), m_iMaxNumIndices, fpMesh);
 	}
 
-	printf("\nDB: MeshName: \"%s\"\n", m_szName);
-	printf("DB: m_iNumCollapses      -> %d\n", m_iNumCollapses);
-	printf("DB: m_iTotalIndexChanges -> %d\n", m_iTotalIndexChanges);
-	printf("DB: m_iMaxNumVertices    -> %d\n", m_iMaxNumVertices);
-	printf("DB: m_iMaxNumIndices     -> %d\n", m_iMaxNumIndices);
-	printf("DB: m_iMinNumVertices    -> %d\n", m_iMinNumVertices);
-	printf("DB: m_iMinNumIndices     -> %d\n", m_iMinNumIndices);
+	// NOTE: read in the "collapses" (I think this is used to set the vertices
+	// based on how close the player is to the object)
+	_N3EdgeCollapse* m_pCollapses = new _N3EdgeCollapse[(m_iNumCollapses0+1)];
+	memset(&m_pCollapses[m_iNumCollapses0], 0, sizeof(_N3EdgeCollapse));
 
-	delete m_szName;
-
-	if(
-		m_iNumCollapses!=0                   ||
-		m_iTotalIndexChanges!=0              ||
-		m_iMaxNumVertices!=m_iMinNumVertices ||
-		m_iMaxNumIndices!=m_iMinNumIndices
-	) {
-		printf("\nER: This release does not support mesh LODs!");
-		exit(-1);
+	if(m_iNumCollapses0 > 0) {
+		fread(m_pCollapses, sizeof(_N3EdgeCollapse), m_iNumCollapses0, fpMesh);
+		memset(&m_pCollapses[m_iNumCollapses0], 0, sizeof(_N3EdgeCollapse));
 	}
 
+	// NOTE: read in the index changes
+	int* m_pAllIndexChanges = new int[m_iTotalIndexChanges0];
+
+	if(m_iTotalIndexChanges0 > 0) {
+		fread(m_pAllIndexChanges, sizeof(int), m_iTotalIndexChanges0, fpMesh);
+	}
+
+	// NOTE: read in m_iLODCtrlValueCount
+	int m_iLODCtrlValueCount0;
+	fread(&m_iLODCtrlValueCount0, sizeof(int), 1, fpMesh);
+
+	// NOTE: read in the LODCtrls (current size seems to be 0)
+	_N3LODCtrlValue* m_pLODCtrlValues = new _N3LODCtrlValue[m_iLODCtrlValueCount0];
+
+	if(m_iLODCtrlValueCount0) {
+		fread(m_pLODCtrlValues, sizeof(_N3LODCtrlValue), m_iLODCtrlValueCount0, fpMesh);
+	}
+
+	// NOTE: the actual number of indices and vertices for the specific
+	// collapse
+	if(m_pAllIndexChanges) {
+		int m_iNumIndices = 0;
+		int m_iNumVertices = 0;
+
+		int c = 0;
+		int LOD = 0;
+
+		int iDiff = m_pLODCtrlValues[LOD].iNumVertices - m_iNumVertices;
+
+		while(m_pLODCtrlValues[LOD].iNumVertices > m_iNumVertices) {
+			if(c >= m_iNumCollapses0) break;
+			if(m_pCollapses[c].NumVerticesToLose+m_iNumVertices > m_pLODCtrlValues[LOD].iNumVertices)
+				break;
+
+			m_iNumIndices += m_pCollapses[c].NumIndicesToLose;
+			m_iNumVertices += m_pCollapses[c].NumVerticesToLose;
+		
+			int tmp0 = m_pCollapses[c].iIndexChanges;
+			int tmp1 = tmp0+m_pCollapses[c].NumIndicesToChange;
+
+			for(int i=tmp0; i<tmp1; i++) {
+				m_pIndices[m_pAllIndexChanges[i]] = m_iNumVertices-1;
+			}
+
+			c++;
+		}
+
+		// NOTE: if we break on a collapse that isn't intended to be one we
+		// should collapse up to then keep collapsing until we find one
+		while(m_pCollapses[c].bShouldCollapse) {
+			/*
+			- not sure if this is really needed
+			*/
+			if(c >= m_iNumCollapses0) break;
+
+			m_iNumIndices += m_pCollapses[c].NumIndicesToLose;
+			m_iNumVertices += m_pCollapses[c].NumVerticesToLose;
+		
+			int tmp0 = m_pCollapses[c].iIndexChanges;
+			int tmp1 = tmp0+m_pCollapses[c].NumIndicesToChange;
+
+			for(int i=tmp0; i<tmp1; i++) {
+				m_pIndices[m_pAllIndexChanges[i]] = m_iNumVertices-1;
+			}
+
+			c++;
+		}
+	}
+
+	free(m_pLODCtrlValues);
+	free(m_pAllIndexChanges);
+	free(m_pCollapses);
+	
+	// NOTE: display debug info
+	printf("\nMeshName: %s\n", m_szName0);
+	printf("m_iNumCollapses      -> %d\n", m_iNumCollapses0);
+	printf("m_iTotalIndexChanges -> %d\n", m_iTotalIndexChanges0);
+	printf("m_iMaxNumVertices    -> %d\n", m_iMaxNumVertices);
+	printf("m_iMaxNumIndices     -> %d\n", m_iMaxNumIndices);
+	printf("m_iMinNumVertices    -> %d\n", m_iMinNumVertices0);
+	printf("m_iMinNumIndices     -> %d\n", m_iMinNumIndices0);
+	printf("m_iLODCtrlValueCount -> %d\n", m_iLODCtrlValueCount0);
+
+	/*
+	*/
 	fflush(stdout);
 	fclose(fpMesh);
 }
@@ -279,6 +396,7 @@ void N3BuildMesh(const char* szFN) {
 	FILE* fpMesh = fopen(szFN, "wb");
 	if(fpMesh == NULL) {
 		printf("\nER: Unable to create mesh file!\n");
+		system("pause");
 		exit(-1);
 	}
 
@@ -378,6 +496,7 @@ void GenerateScene(const char* szFN) {
 	} else {
 		printf("Failed!\n");
 		printf("\nER: Mesh data missing!\n");
+		system("pause");
 		exit(-1);
 	}
 

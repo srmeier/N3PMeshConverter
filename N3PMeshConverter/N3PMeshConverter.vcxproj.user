@@ -5,7 +5,7 @@
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <LocalDebuggerCommandArguments>-export obj 1_6011_00_0.n3pmesh item_co_bow.png</LocalDebuggerCommandArguments>
+    <LocalDebuggerCommandArguments>-export obj "Items/Daggers Category/Knife/1_1031_00_0.n3pmesh" weapon_shortsword.png</LocalDebuggerCommandArguments>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
   </PropertyGroup>
 </Project>
