@@ -3,3 +3,5 @@
 
 N3PMeshConverter -export obj 1_6011_00_0.n3pmesh item_co_bow.bmp
 N3PMeshConverter -import 1_6011_00_0.obj
+
+N3PMeshConverter -export obj "Items/Daggers Category/Knife/1_1031_00_0.n3pmesh" weapon_shortsword.png
