@@ -17,10 +17,50 @@ N3PMeshConvert -import 1_6011_00_0.obj
 
 //-----------------------------------------------------------------------------
 typedef struct {
+	float x, y, z, w;
+} __Quaternion;
+
+typedef struct {
 	float x, y, z;
 	float nx, ny, nz;
 	float u, v;
 } Vertex;
+
+typedef struct {
+	float x, y, z;
+} Vec3;
+
+struct __VertexSkinned {
+	Vec3   vOrigin;
+	int    nAffect;
+	int*   pnJoints;
+	float* pfWeights;
+};
+
+struct __VertexXyzNormal: public Vec3
+{
+public:
+	Vec3 n;
+
+public:
+	const __VertexXyzNormal& operator = (const Vertex vec) {
+		x   = vec.x ; y   = vec.y ;   z = vec.z ;
+		n.x = vec.nx; n.y = vec.ny; n.z = vec.nz;
+		return *this;
+	}
+};
+
+struct VertUVs
+{
+public:
+	float u, v;
+
+public:
+	const VertUVs& operator = (const Vertex vec) {
+		u = vec.u; v = vec.v;
+		return *this;
+	}
+};
 
 typedef unsigned short Element;
 
@@ -49,6 +89,7 @@ size_t   m_iMaxNumVertices;
 void ParseScene(const char* szFN);
 void N3LoadMesh(const char* szFN);
 void N3BuildMesh(const char* szFN);
+void N3BuildSkin(const char* szFN);
 void GenerateScene(const char* szFN);
 
 //-----------------------------------------------------------------------------
@@ -117,8 +158,9 @@ int main(int argc, char* argv[]) {
 		} else {
 			printf("Failed!\n");
 		}
-	} else if(!strcmp(argv[1], "-import") && argc==3) {
+	} else if(!strcmp(argv[1], "-import") && argc==4) {
 		const char* pFileName = argv[2];
+		const char* pMeshType = argv[3];
 		
 		char pFileBase[MAXLEN] = {};
 		char pOutputFile[MAXLEN] = {};
@@ -127,15 +169,18 @@ int main(int argc, char* argv[]) {
 		while(c!='.' && c!='\0') c = pFileName[offset++];
 		memcpy(pFileBase, pFileName, (offset-1)*sizeof(char));
 
-		sprintf(pOutputFile, "./%s_mod.%s",
-			pFileBase,
-			"n3pmesh"
-		);
-
 		printf("\nDB: Loading \"%s\"... ", pFileName);
 		ParseScene(pFileName);
-		printf("\nDB: Generating N3PMesh...\n");
-		N3BuildMesh(pOutputFile);
+
+		if(!strcmp(pMeshType, "n3pmesh")) {
+			sprintf(pOutputFile, "./%s_mod.%s", pFileBase, "n3pmesh");
+			printf("\nDB: Generating N3PMesh...\n");
+			N3BuildMesh(pOutputFile);
+		} else if(!strcmp(pMeshType, "n3cskins")) {
+			sprintf(pOutputFile, "./%s_mod.%s", pFileBase, "n3cskins");
+			printf("\nDB: Generating N3CSkins...\n");
+			N3BuildSkin(pOutputFile);
+		}
 	}
 
 	delete pExporter;
@@ -436,6 +481,165 @@ void N3BuildMesh(const char* szFN) {
 
 	fflush(stdout);
 	fclose(fpMesh);
+}
+
+//-----------------------------------------------------------------------------
+void N3BuildSkin(const char* szFN) {
+	FILE* fpSkin = fopen(szFN, "wb");
+	if(fpSkin == NULL) {
+		printf("\nER: Unable to create mesh file!\n");
+		system("pause");
+		exit(-1);
+	}
+
+	int iNL = strlen(szFN);
+	fwrite(&iNL, sizeof(int), 1, fpSkin);
+	fwrite(szFN, sizeof(char), iNL, fpSkin);
+
+	#define MAX_CHR_LOD 4
+	for(int i=0; i<MAX_CHR_LOD; ++i) {
+		// CN3IMesh::Load()
+		int iNL = 0;
+		fwrite(&iNL, sizeof(int), 1, fpSkin);
+
+		/*
+		Element* m_pIndices;
+		Vertex*  m_pVertices;
+		size_t   m_iMaxNumIndices;
+		size_t   m_iMaxNumVertices;
+		*/
+
+		int nFC = 0, nVC = 0, nUVC = 0;
+		nFC  = m_iMaxNumIndices/3;
+		fwrite(&nFC, sizeof(int), 1, fpSkin);
+		nVC  = m_iMaxNumVertices;
+		fwrite(&nVC, sizeof(int), 1, fpSkin);
+		nUVC = m_iMaxNumVertices;
+		fwrite(&nUVC, sizeof(int), 1, fpSkin);
+
+		VertUVs* m_pfUVs = new VertUVs[nVC];
+		memset(m_pfUVs, 0x00, nVC*sizeof(VertUVs));
+		__VertexXyzNormal* m_pVerticesWithNorms = new __VertexXyzNormal[nVC];
+		memset(m_pVerticesWithNorms, 0x00, nVC*sizeof(__VertexXyzNormal));
+		for(int k=0; k<nVC; ++k) {
+			m_pfUVs[k] = m_pVertices[k];
+
+			//m_pVertices[k].x /= 50.0f;//m_pVertices[k].x = (m_pVertices[k].x/10.0f +312.931f);
+			//m_pVertices[k].y /= 50.0f;
+			//m_pVertices[k].z /= 50.0f;//m_pVertices[k].z = (m_pVertices[k].z/10.0f +313.378979f);
+			m_pVerticesWithNorms[k] = m_pVertices[k];
+		}
+
+		if(nFC>0 && nVC>0) {
+			fwrite(m_pVerticesWithNorms, sizeof(__VertexXyzNormal), nVC, fpSkin);
+			fwrite(m_pIndices, sizeof(Element), 3*nFC, fpSkin);
+		}
+
+		if(nUVC>0) {
+			fwrite(m_pfUVs, sizeof(VertUVs), nUVC, fpSkin);
+			fwrite(m_pIndices, sizeof(Element), 3*nFC, fpSkin);
+		}
+
+		delete m_pfUVs;
+		delete m_pVerticesWithNorms;
+
+		//CN3Skin::Load()
+		for(int k=0; k<nVC; ++k) {
+			__VertexSkinned skin_vert = {};
+			skin_vert.nAffect = 0;
+			fwrite(&skin_vert, sizeof(__VertexSkinned), 1, fpSkin);
+		}
+	}
+
+
+	fflush(stdout);
+	fclose(fpSkin);
+
+	// TEMP: write out the over things
+	fpSkin = fopen("mob_worm.n3anim", "wb");
+	if(fpSkin == NULL) {
+		printf("\nER: Unable to create mesh file!\n");
+		system("pause");
+		exit(-1);
+	}
+
+	int nCount = 0;
+	fwrite(&nCount, sizeof(int), 1, fpSkin);
+
+	fclose(fpSkin);
+
+	// TEMP: write out the over things
+	fpSkin = fopen("mob_worm.n3joint", "wb");
+	if(fpSkin == NULL) {
+		printf("\nER: Unable to create mesh file!\n");
+		system("pause");
+		exit(-1);
+	}
+
+	iNL = strlen(szFN);
+	fwrite(&iNL, sizeof(int), 1, fpSkin);
+	fwrite(szFN, sizeof(char), iNL, fpSkin);
+
+	//sizeof(__Vector3)
+	unsigned char data0[12] = {};
+	fwrite(data0, sizeof(unsigned char), 12, fpSkin);
+
+	//sizeof(__Quaternion)
+	//unsigned char data1[16] = {};
+	//fwrite(data1, sizeof(unsigned char), 16, fpSkin);
+	__Quaternion tmp = {}; tmp.w = 1.0f;
+	fwrite(&tmp, sizeof(__Quaternion), 1, fpSkin);
+
+	//sizeof(__Vector3)
+	//unsigned char data2[12] = {};
+	//fwrite(data2, sizeof(unsigned char), 12, fpSkin);
+	Vec3 tmp0 = {1.0f, 1.0f, 1.0f};
+	fwrite(&tmp0, sizeof(Vec3), 1, fpSkin);
+
+	//CN3AnimKey::Load()
+	nCount = 0;
+	fwrite(&nCount, sizeof(int), 1, fpSkin);
+	fwrite(&nCount, sizeof(int), 1, fpSkin);
+	fwrite(&nCount, sizeof(int), 1, fpSkin);
+	//m_KeyOrient
+	fwrite(&nCount, sizeof(int), 1, fpSkin);
+	//nCC
+	fwrite(&nCount, sizeof(int), 1, fpSkin);
+
+	fclose(fpSkin);
+
+	// TEMP: write out the over things
+	fpSkin = fopen("mob_worm_body.n3cpart", "wb");
+	if(fpSkin == NULL) {
+		printf("\nER: Unable to create mesh file!\n");
+		system("pause");
+		exit(-1);
+	}
+
+	iNL = strlen(szFN);
+	fwrite(&iNL, sizeof(int), 1, fpSkin);
+	fwrite(szFN, sizeof(char), iNL, fpSkin);
+
+	int m_dwReserved = 0;
+	fwrite(&m_dwReserved, sizeof(int), 1, fpSkin);
+
+	//sizeof(__Material)
+	unsigned char data3[92] = {};
+	fwrite(data3, sizeof(unsigned char), 92, fpSkin);
+
+	// DXT name
+	char dxt_name[] = "item\\capture_flag.dxt";
+	iNL = strlen(dxt_name);
+	fwrite(&iNL, sizeof(int), 1, fpSkin);
+	fwrite(dxt_name, sizeof(char), iNL, fpSkin);
+
+	// Skin name
+	char skin_name[] = "item\\capture_flag.n3cskins";
+	iNL = strlen(skin_name);
+	fwrite(&iNL, sizeof(int), 1, fpSkin);
+	fwrite(skin_name, sizeof(char), iNL, fpSkin);
+
+	fclose(fpSkin);
 }
 
 //-----------------------------------------------------------------------------
