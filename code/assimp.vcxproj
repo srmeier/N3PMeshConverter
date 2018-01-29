@@ -1,0 +1,625 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGUID>{47447CF3-B164-36DE-9C17-4542B5B48789}</ProjectGUID>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>Win32</Platform>
+    <ProjectName>assimp</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">assimp.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">assimp-vc140-mt</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">assimp.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">assimp-vc140-mt</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\srmeier\Desktop\assimp-3.3.1\.;C:\Users\srmeier\Desktop\assimp-3.3.1;C:\Users\srmeier\Desktop\assimp-3.3.1\include;C:\Users\srmeier\Desktop\assimp-3.3.1\contrib\zlib;C:\Users\srmeier\Desktop\assimp-3.3.1\code\..\contrib\rapidjson\include;C:\Users\srmeier\Desktop\assimp-3.3.1\code\..\contrib\openddlparser\include;C:\Users\srmeier\Desktop\assimp-3.3.1\code\..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Debug/</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;OPENDDL_NO_USE_CPP11;ASSIMP_BUILD_NO_C4D_IMPORTER;ASSIMP_BUILD_DLL_EXPORT;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;OPENDDLPARSER_BUILD;CMAKE_INTDIR="Debug";assimp_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;OPENDDL_NO_USE_CPP11;ASSIMP_BUILD_NO_C4D_IMPORTER;ASSIMP_BUILD_DLL_EXPORT;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;OPENDDLPARSER_BUILD;CMAKE_INTDIR=\"Debug\";assimp_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\srmeier\Desktop\assimp-3.3.1\.;C:\Users\srmeier\Desktop\assimp-3.3.1;C:\Users\srmeier\Desktop\assimp-3.3.1\include;C:\Users\srmeier\Desktop\assimp-3.3.1\contrib\zlib;C:\Users\srmeier\Desktop\assimp-3.3.1\code\..\contrib\rapidjson\include;C:\Users\srmeier\Desktop\assimp-3.3.1\code\..\contrib\openddlparser\include;C:\Users\srmeier\Desktop\assimp-3.3.1\code\..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\srmeier\Desktop\assimp-3.3.1\.;C:\Users\srmeier\Desktop\assimp-3.3.1;C:\Users\srmeier\Desktop\assimp-3.3.1\include;C:\Users\srmeier\Desktop\assimp-3.3.1\contrib\zlib;C:\Users\srmeier\Desktop\assimp-3.3.1\code\..\contrib\rapidjson\include;C:\Users\srmeier\Desktop\assimp-3.3.1\code\..\contrib\openddlparser\include;C:\Users\srmeier\Desktop\assimp-3.3.1\code\..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalOptions>%(AdditionalOptions)  /machine:X86</AdditionalOptions>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;..\lib\Debug\zlibstaticd.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>Debug</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>../lib/Debug/assimp-vc140-mt.lib</ImportLibrary>
+      <ProgramDataBaseFile>../bin/Debug/assimp-vc140-mt.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+      <Version>
+      </Version>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\srmeier\Desktop\assimp-3.3.1\.;C:\Users\srmeier\Desktop\assimp-3.3.1;C:\Users\srmeier\Desktop\assimp-3.3.1\include;C:\Users\srmeier\Desktop\assimp-3.3.1\contrib\zlib;C:\Users\srmeier\Desktop\assimp-3.3.1\code\..\contrib\rapidjson\include;C:\Users\srmeier\Desktop\assimp-3.3.1\code\..\contrib\openddlparser\include;C:\Users\srmeier\Desktop\assimp-3.3.1\code\..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Release/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;OPENDDL_NO_USE_CPP11;ASSIMP_BUILD_NO_C4D_IMPORTER;ASSIMP_BUILD_DLL_EXPORT;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;OPENDDLPARSER_BUILD;CMAKE_INTDIR="Release";assimp_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;OPENDDL_NO_USE_CPP11;ASSIMP_BUILD_NO_C4D_IMPORTER;ASSIMP_BUILD_DLL_EXPORT;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;OPENDDLPARSER_BUILD;CMAKE_INTDIR=\"Release\";assimp_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\srmeier\Desktop\assimp-3.3.1\.;C:\Users\srmeier\Desktop\assimp-3.3.1;C:\Users\srmeier\Desktop\assimp-3.3.1\include;C:\Users\srmeier\Desktop\assimp-3.3.1\contrib\zlib;C:\Users\srmeier\Desktop\assimp-3.3.1\code\..\contrib\rapidjson\include;C:\Users\srmeier\Desktop\assimp-3.3.1\code\..\contrib\openddlparser\include;C:\Users\srmeier\Desktop\assimp-3.3.1\code\..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\srmeier\Desktop\assimp-3.3.1\.;C:\Users\srmeier\Desktop\assimp-3.3.1;C:\Users\srmeier\Desktop\assimp-3.3.1\include;C:\Users\srmeier\Desktop\assimp-3.3.1\contrib\zlib;C:\Users\srmeier\Desktop\assimp-3.3.1\code\..\contrib\rapidjson\include;C:\Users\srmeier\Desktop\assimp-3.3.1\code\..\contrib\openddlparser\include;C:\Users\srmeier\Desktop\assimp-3.3.1\code\..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalOptions>%(AdditionalOptions)  /machine:X86</AdditionalOptions>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;..\lib\Release\zlibstatic.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>No</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>../lib/Release/assimp-vc140-mt.lib</ImportLibrary>
+      <ProgramDataBaseFile>../bin/Release/assimp-vc140-mt.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+      <Version>
+      </Version>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule C:/Users/srmeier/Desktop/assimp-3.3.1/code/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -HC:/Users/srmeier/Desktop/assimp-3.3.1 -BC:/Users/srmeier/Desktop/assimp-3.3.1 --check-stamp-file C:/Users/srmeier/Desktop/assimp-3.3.1/code/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:/Users/srmeier/Desktop/assimp-3.3.1/code/CMakeLists.txt;C:\Users\srmeier\Desktop\assimp-3.3.1\code\CMakeLists.txt;C:\Users\srmeier\Desktop\assimp-3.3.1\code\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\srmeier\Desktop\assimp-3.3.1\code\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule C:/Users/srmeier/Desktop/assimp-3.3.1/code/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -HC:/Users/srmeier/Desktop/assimp-3.3.1 -BC:/Users/srmeier/Desktop/assimp-3.3.1 --check-stamp-file C:/Users/srmeier/Desktop/assimp-3.3.1/code/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:/Users/srmeier/Desktop/assimp-3.3.1/code/CMakeLists.txt;C:\Users\srmeier\Desktop\assimp-3.3.1\code\CMakeLists.txt;C:\Users\srmeier\Desktop\assimp-3.3.1\code\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\srmeier\Desktop\assimp-3.3.1\code\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\fast_atof.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\qnan.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\BaseImporter.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\BaseProcess.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\Importer.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\ScenePrivate.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\ByteSwapper.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\DefaultProgressHandler.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\DefaultIOStream.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\DefaultIOSystem.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\CInterfaceIOWrapper.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\Hash.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\IFF.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\MemoryIOWrapper.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\ParsingUtils.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\StreamReader.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\StreamWriter.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\StringComparison.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\StringUtils.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\SGSpatialSort.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\VertexTriangleAdjacency.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\GenericProperty.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\SpatialSort.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\SceneCombiner.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\ScenePreprocessor.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\SkeletonMeshBuilder.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\SplitByBoneCountProcess.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\SmoothingGroups.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\StandardShapes.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\TargetAnimation.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\RemoveComments.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\Subdivision.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\Vertex.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\LineSplitter.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\TinyFormatter.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\Profiler.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\LogAux.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\Bitmap.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\XMLTools.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\include\assimp\DefaultLogger.hpp" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\include\assimp\LogStream.hpp" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\include\assimp\Logger.hpp" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\include\assimp\NullLogger.hpp" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\Win32DebugLogStream.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\FileLogStream.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\StdOStreamLogStream.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\BlobIOSystem.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\CalcTangentsProcess.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\ComputeUVMappingProcess.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\ConvertToLHProcess.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\FindDegenerates.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\FindInstancesProcess.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\FindInvalidDataProcess.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\FixNormalsStep.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\GenFaceNormalsProcess.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\GenVertexNormalsProcess.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\PretransformVertices.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\ImproveCacheLocality.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\JoinVerticesProcess.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\LimitBoneWeightsProcess.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\RemoveRedundantMaterials.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\RemoveVCProcess.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\SortByPTypeProcess.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\SplitLargeMeshes.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\TextureTransform.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\TriangulateProcess.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\ValidateDataStructure.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\OptimizeGraph.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\OptimizeMeshes.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\DeboneProcess.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\ProcessHelper.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\PolyTools.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\MakeVerboseFormat.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\MaterialSystem.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\StepExporter.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\3DSHelper.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\3DSLoader.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\3DSExporter.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\ACLoader.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\ASELoader.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\ASEParser.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\AssbinExporter.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\AssbinLoader.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\AssxmlExporter.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\B3DImporter.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\BVHLoader.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\ColladaHelper.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\ColladaLoader.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\ColladaParser.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\ColladaExporter.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\DXFLoader.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\DXFHelper.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\CSMLoader.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\HMPFileData.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\HMPLoader.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\HalfLifeFileData.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\IRRMeshLoader.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\IRRShared.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\IRRLoader.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\LWOAnimation.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\LWOFileData.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\LWOLoader.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\LWSLoader.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\MD2FileData.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\MD2Loader.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\MD2NormalTable.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\MD3FileData.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\MD3Loader.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\MD5Loader.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\MD5Parser.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\MDCFileData.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\MDCLoader.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\MDCNormalTable.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\MDLDefaultColorMap.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\MDLFileData.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\MDLLoader.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\NFFLoader.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\NDOLoader.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\OFFLoader.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\ObjFileData.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\ObjFileImporter.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\ObjFileMtlImporter.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\ObjFileParser.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\ObjTools.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\ObjExporter.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\OgreImporter.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\OgreStructs.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\OgreParsingUtils.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\OgreBinarySerializer.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\OgreXmlSerializer.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\OpenGEXExporter.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\OpenGEXImporter.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\OpenGEXStructs.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\PlyLoader.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\PlyParser.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\PlyExporter.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\MS3DLoader.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\COBLoader.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\COBScene.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\BlenderLoader.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\BlenderDNA.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\BlenderDNA.inl" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\BlenderScene.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\BlenderSceneGen.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\BlenderIntermediate.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\BlenderModifier.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\BlenderBMesh.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\BlenderTessellator.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\IFCLoader.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\IFCReaderGen.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\IFCUtil.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\STEPFile.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\STEPFileReader.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\STEPFileEncoding.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\XGLLoader.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\FBXCompileConfig.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\FBXImporter.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\FBXParser.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\FBXTokenizer.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\FBXImportSettings.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\FBXConverter.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\FBXUtil.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\FBXDocument.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\FBXProperties.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\FBXMeshGeometry.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\Q3DLoader.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\Q3BSPFileData.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\Q3BSPFileParser.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\Q3BSPFileImporter.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\Q3BSPZipArchive.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\RawLoader.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\SIBImporter.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\SMDLoader.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\STLLoader.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\STLExporter.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\TerragenLoader.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\UnrealLoader.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\XFileHelper.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\XFileImporter.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\XFileParser.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\XFileExporter.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\glTFAsset.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\glTFAsset.inl" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\glTFAssetWriter.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\glTFAssetWriter.inl" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\glTFImporter.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\glTFExporter.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\D3MFImporter.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\D3MFOpcPackage.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\irrXMLWrapper.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\contrib\irrXML\CXMLReaderImpl.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\contrib\irrXML\heapsort.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\contrib\irrXML\irrArray.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\contrib\irrXML\irrString.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\contrib\irrXML\irrTypes.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\contrib\irrXML\irrXML.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\contrib\ConvertUTF\ConvertUTF.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\contrib\unzip\crypt.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\contrib\unzip\ioapi.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\contrib\unzip\unzip.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\contrib\poly2tri\poly2tri\common\shapes.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\contrib\poly2tri\poly2tri\common\utils.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\contrib\poly2tri\poly2tri\sweep\advancing_front.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\contrib\poly2tri\poly2tri\sweep\cdt.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\contrib\poly2tri\poly2tri\sweep\sweep.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\contrib\poly2tri\poly2tri\sweep\sweep_context.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\contrib\clipper\clipper.hpp" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\contrib\openddlparser\include\openddlparser\OpenDDLParser.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\contrib\openddlparser\include\openddlparser\OpenDDLParserUtils.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\contrib\openddlparser\include\openddlparser\OpenDDLCommon.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\contrib\openddlparser\include\openddlparser\OpenDDLExport.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\contrib\openddlparser\include\openddlparser\DDLNode.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\contrib\openddlparser\include\openddlparser\Value.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\include\assimp\anim.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\include\assimp\ai_assert.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\include\assimp\camera.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\include\assimp\color4.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\include\assimp\color4.inl" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\include\assimp\config.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\include\assimp\defs.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\include\assimp\cfileio.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\include\assimp\light.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\include\assimp\material.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\include\assimp\material.inl" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\include\assimp\matrix3x3.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\include\assimp\matrix3x3.inl" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\include\assimp\matrix4x4.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\include\assimp\matrix4x4.inl" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\include\assimp\mesh.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\include\assimp\postprocess.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\include\assimp\quaternion.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\include\assimp\quaternion.inl" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\include\assimp\scene.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\include\assimp\metadata.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\include\assimp\texture.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\include\assimp\types.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\include\assimp\vector2.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\include\assimp\vector2.inl" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\include\assimp\vector3.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\include\assimp\vector3.inl" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\include\assimp\version.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\include\assimp\cimport.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\include\assimp\importerdesc.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\include\assimp\Importer.hpp" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\include\assimp\ProgressHandler.hpp" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\include\assimp\IOStream.hpp" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\include\assimp\IOSystem.hpp" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\include\assimp\cexport.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\include\assimp\Exporter.hpp" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\include\assimp\Compiler\pushpack1.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\include\assimp\Compiler\poppack1.h" />
+    <ClInclude Include="C:\Users\srmeier\Desktop\assimp-3.3.1\include\assimp\Compiler\pstdint.h" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\Assimp.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\BaseImporter.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\BaseProcess.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\PostStepRegistry.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\ImporterRegistry.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\DefaultIOStream.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\DefaultIOSystem.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\Importer.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\SGSpatialSort.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\VertexTriangleAdjacency.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\SpatialSort.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\SceneCombiner.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\ScenePreprocessor.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\SkeletonMeshBuilder.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\SplitByBoneCountProcess.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\StandardShapes.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\TargetAnimation.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\RemoveComments.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\Subdivision.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\Bitmap.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\Version.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\DefaultLogger.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\Exporter.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\AssimpCExport.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\CalcTangentsProcess.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\ComputeUVMappingProcess.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\ConvertToLHProcess.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\FindDegenerates.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\FindInstancesProcess.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\FindInvalidDataProcess.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\FixNormalsStep.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\GenFaceNormalsProcess.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\GenVertexNormalsProcess.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\PretransformVertices.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\ImproveCacheLocality.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\JoinVerticesProcess.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\LimitBoneWeightsProcess.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\RemoveRedundantMaterials.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\RemoveVCProcess.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\SortByPTypeProcess.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\SplitLargeMeshes.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\TextureTransform.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\TriangulateProcess.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\ValidateDataStructure.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\OptimizeGraph.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\OptimizeMeshes.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\DeboneProcess.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\ProcessHelper.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\MakeVerboseFormat.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\MaterialSystem.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\StepExporter.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\3DSConverter.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\3DSLoader.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\3DSExporter.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\ACLoader.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\ASELoader.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\ASEParser.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\AssbinExporter.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\AssbinLoader.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\AssxmlExporter.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\B3DImporter.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\BVHLoader.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\ColladaLoader.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\ColladaParser.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\ColladaExporter.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\DXFLoader.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\CSMLoader.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\HMPLoader.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\IRRMeshLoader.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\IRRShared.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\IRRLoader.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\LWOAnimation.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\LWOBLoader.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\LWOLoader.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\LWOMaterial.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\LWSLoader.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\MD2Loader.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\MD3Loader.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\MD5Loader.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\MD5Parser.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\MDCLoader.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\MDLLoader.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\MDLMaterialLoader.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\NFFLoader.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\NDOLoader.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\OFFLoader.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\ObjFileImporter.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\ObjFileMtlImporter.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\ObjFileParser.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\ObjExporter.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\OgreImporter.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\OgreStructs.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\OgreBinarySerializer.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\OgreXmlSerializer.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\OgreMaterial.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\OpenGEXExporter.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\OpenGEXImporter.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\PlyLoader.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\PlyParser.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\PlyExporter.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\MS3DLoader.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\COBLoader.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\BlenderLoader.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\BlenderDNA.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\BlenderScene.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\BlenderModifier.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\BlenderBMesh.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\BlenderTessellator.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\IFCLoader.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\IFCReaderGen.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(AdditionalOptions)  /bigobj</AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(AdditionalOptions)  /bigobj</AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\IFCUtil.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\IFCGeometry.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\IFCMaterial.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\IFCProfile.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\IFCCurve.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\IFCBoolean.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\IFCOpenings.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\STEPFileReader.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\STEPFileEncoding.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\XGLLoader.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\FBXImporter.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\FBXParser.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\FBXTokenizer.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\FBXConverter.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\FBXUtil.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\FBXDocument.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\FBXProperties.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\FBXMeshGeometry.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\FBXMaterial.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\FBXModel.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\FBXAnimation.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\FBXNodeAttribute.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\FBXDeformer.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\FBXBinaryTokenizer.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\FBXDocumentUtil.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\Q3DLoader.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\Q3BSPFileParser.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\Q3BSPFileImporter.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\Q3BSPZipArchive.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\RawLoader.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\SIBImporter.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\SMDLoader.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\STLLoader.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\STLExporter.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\TerragenLoader.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\UnrealLoader.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\XFileImporter.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\XFileParser.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\XFileExporter.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\glTFImporter.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\glTFExporter.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\D3MFImporter.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\code\D3MFOpcPackage.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\contrib\irrXML\irrXML.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\contrib\ConvertUTF\ConvertUTF.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\contrib\unzip\ioapi.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\contrib\unzip\unzip.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\contrib\poly2tri\poly2tri\common\shapes.cc" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\contrib\poly2tri\poly2tri\sweep\advancing_front.cc" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\contrib\poly2tri\poly2tri\sweep\cdt.cc" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\contrib\poly2tri\poly2tri\sweep\sweep.cc" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\contrib\poly2tri\poly2tri\sweep\sweep_context.cc" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\contrib\clipper\clipper.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\contrib\openddlparser\code\OpenDDLParser.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\contrib\openddlparser\code\DDLNode.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\contrib\openddlparser\code\OpenDDLCommon.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\contrib\openddlparser\code\OpenDDLExport.cpp" />
+    <ClCompile Include="C:\Users\srmeier\Desktop\assimp-3.3.1\contrib\openddlparser\code\Value.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="C:\Users\srmeier\Desktop\assimp-3.3.1\ZERO_CHECK.vcxproj">
+      <Project>5CC53B19-A6A7-3ED0-87B3-B70442EE076F</Project>
+      <Name>ZERO_CHECK</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\srmeier\Desktop\assimp-3.3.1\contrib\zlib\zlibstatic.vcxproj">
+      <Project>83C6EC3C-5921-315C-B6FE-60D94E37FA44</Project>
+      <Name>zlibstatic</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

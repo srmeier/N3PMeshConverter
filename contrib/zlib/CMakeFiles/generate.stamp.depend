@@ -1,0 +1,17 @@
+# CMake generation dependency list for this directory.
+C:/Users/srmeier/Desktop/assimp-3.3.1/contrib/zlib/CMakeLists.txt
+C:/Program Files/CMake/share/cmake-3.8/Modules/CheckTypeSize.cmake
+C:/Program Files/CMake/share/cmake-3.8/Modules/CheckIncludeFile.cmake
+C:/Program Files/CMake/share/cmake-3.8/Modules/CheckIncludeFileCXX.cmake
+C:/Program Files/CMake/share/cmake-3.8/Modules/CheckFunctionExists.cmake
+C:/Program Files/CMake/share/cmake-3.8/Modules/CheckIncludeFile.cmake
+C:/Program Files/CMake/share/cmake-3.8/Modules/CheckCSourceCompiles.cmake
+C:/Program Files/CMake/share/cmake-3.8/Modules/CheckIncludeFile.c.in
+C:/Program Files/CMake/share/cmake-3.8/Modules/CheckIncludeFile.c.in
+C:/Program Files/CMake/share/cmake-3.8/Modules/CheckIncludeFile.c.in
+C:/Program Files/CMake/share/cmake-3.8/Modules/CheckTypeSize.c.in
+C:/Users/srmeier/Desktop/assimp-3.3.1/CMakeFiles/CheckTypeSize/OFF64_T.c
+C:/Program Files/CMake/share/cmake-3.8/Modules/CheckFunctionExists.c
+C:/Program Files/CMake/share/cmake-3.8/Modules/CheckIncludeFile.c.in
+C:/Users/srmeier/Desktop/assimp-3.3.1/contrib/zlib/zlib.pc.cmakein
+C:/Users/srmeier/Desktop/assimp-3.3.1/contrib/zlib/zconf.h.cmakein

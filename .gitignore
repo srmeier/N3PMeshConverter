@@ -1,2 +1,4 @@
 *.opendb
 *.db
+*.obj
+*.log
