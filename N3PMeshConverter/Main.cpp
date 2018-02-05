@@ -181,6 +181,8 @@ int main(int argc, char* argv[]) {
 			printf("\nDB: Generating N3CSkins...\n");
 			N3BuildSkin(pOutputFile);
 		}
+	} else {
+		printf("Incorrect command-line arguments.\n");
 	}
 
 	delete pExporter;
