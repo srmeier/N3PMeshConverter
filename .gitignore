@@ -2,3 +2,10 @@
 *.db
 *.obj
 *.log
+*.tlog
+N3PMeshConverter/Debug/
+N3PMeshConverter/Release/
+*.pdb
+*.ipdb
+*.exp
+*.iobj
