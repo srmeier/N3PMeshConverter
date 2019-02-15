@@ -4,32 +4,23 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "N3PMeshConverter", "N3PMeshConverter\N3PMeshConverter.vcxproj", "{12465DAE-5728-41B5-9C0A-B1A566874213}"
-	ProjectSection(ProjectDependencies) = postProject
-		{47447CF3-B164-36DE-9C17-4542B5B48789} = {47447CF3-B164-36DE-9C17-4542B5B48789}
-	EndProjectSection
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "assimp", "code\assimp.vcxproj", "{47447CF3-B164-36DE-9C17-4542B5B48789}"
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "zlibstatic", "contrib\zlib\zlibstatic.vcxproj", "{83C6EC3C-5921-315C-B6FE-60D94E37FA44}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
+		MinSizeRel|x86 = MinSizeRel|x86
 		Release|x86 = Release|x86
+		RelWithDebInfo|x86 = RelWithDebInfo|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{12465DAE-5728-41B5-9C0A-B1A566874213}.Debug|x86.ActiveCfg = Debug|Win32
 		{12465DAE-5728-41B5-9C0A-B1A566874213}.Debug|x86.Build.0 = Debug|Win32
+		{12465DAE-5728-41B5-9C0A-B1A566874213}.MinSizeRel|x86.ActiveCfg = Release|Win32
+		{12465DAE-5728-41B5-9C0A-B1A566874213}.MinSizeRel|x86.Build.0 = Release|Win32
 		{12465DAE-5728-41B5-9C0A-B1A566874213}.Release|x86.ActiveCfg = Release|Win32
 		{12465DAE-5728-41B5-9C0A-B1A566874213}.Release|x86.Build.0 = Release|Win32
-		{47447CF3-B164-36DE-9C17-4542B5B48789}.Debug|x86.ActiveCfg = Debug|Win32
-		{47447CF3-B164-36DE-9C17-4542B5B48789}.Debug|x86.Build.0 = Debug|Win32
-		{47447CF3-B164-36DE-9C17-4542B5B48789}.Release|x86.ActiveCfg = Release|Win32
-		{47447CF3-B164-36DE-9C17-4542B5B48789}.Release|x86.Build.0 = Release|Win32
-		{83C6EC3C-5921-315C-B6FE-60D94E37FA44}.Debug|x86.ActiveCfg = Debug|Win32
-		{83C6EC3C-5921-315C-B6FE-60D94E37FA44}.Debug|x86.Build.0 = Debug|Win32
-		{83C6EC3C-5921-315C-B6FE-60D94E37FA44}.Release|x86.ActiveCfg = Release|Win32
-		{83C6EC3C-5921-315C-B6FE-60D94E37FA44}.Release|x86.Build.0 = Release|Win32
+		{12465DAE-5728-41B5-9C0A-B1A566874213}.RelWithDebInfo|x86.ActiveCfg = Release|Win32
+		{12465DAE-5728-41B5-9C0A-B1A566874213}.RelWithDebInfo|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
