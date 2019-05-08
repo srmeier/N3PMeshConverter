@@ -1,7 +1,11 @@
 - convert the .dxt file to a .bmp/.png using "N3TexViewerPNG"
 - then run the following in the command line
 
+-export n3pmesh to obj
 N3PMeshConverter -export obj 1_6011_00_0.n3pmesh item_co_bow.bmp
-N3PMeshConverter -import 1_6011_00_0.obj
+-import obj to n3pmesh
+N3PMeshConverter -import 1_6011_00_0.obj n3pmesh
+-import obj to n3cskin
+N3PMeshConverter -import 1_6011_00_0.obj n3cskin
 
 N3PMeshConverter -export obj "Items/Daggers Category/Knife/1_1031_00_0.n3pmesh" weapon_shortsword.png
